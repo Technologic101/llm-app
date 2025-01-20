@@ -11,11 +11,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ChatOpenAI Templates
-system_template = """You are a helpful assistant who always speaks in a pleasant tone!
-"""
+system_template = ""  # Empty system prompt
 
 user_template = """{input}
-Think through your response step by step.
+Categorize this input into a two or three word summary, then use the most suitable format for the response. Begin the response with the summary.
 """
 
 
@@ -23,7 +22,7 @@ Think through your response step by step.
 async def start_chat():
     settings = {
         "model": "gpt-3.5-turbo",
-        "temperature": 0,
+        "temperature": .6,
         "max_tokens": 500,
         "top_p": 1,
         "frequency_penalty": 0,
